@@ -3,46 +3,39 @@
 
 <script>
 
-let computerSelection = (Math.ceil(Math.random()*3))
-playerSelection = prompt("Type Rock, Paper, or Scissors").toUpperCase();
+let computerSelection = Math.random();
+
+if (computerSelection < 0.34){
+	computerSelection = "ROCK"
+}
+else if (computerSelection <= 0.67){
+	computerSelection = "PAPER"
+}
+else {
+	computerSelection = "SCISSORS"
+}
+
+let playerSelection = prompt("Type Rock, Paper, or Scissors").toUpperCase();
 
 function computerPlay(computerSelection, playerSelection){
-	if (computerSelection = 1){
-		if (playerSelection = "ROCK"){
-			return "Draw! Try again.";
-		}
-		else if (playerSelection = "PAPER"){
-			return "You win! Paper beats Rock";
-		}
-		else if (playerSelection = "SCISSORS"){
-			return "You lose! Rock beats Scissors";
-		}
+	if (playerSelection === computerSelection){
+		return "DRAW! Try again."
 	}
-	else if (computerSelection = 2){
-		if (playerSelection = "ROCK"){
-			return "You lose! Paper beats Rock";
-		}
-		else if (playerSelection = "PAPER"){
-			return "Draw! Try again.";
-		}
-		else if (playerSelection = "SCISSORS"){
-			return "You win! Scissors beats Paper";
-		}
+	else if (playerSelection === "ROCK" && computerSelection === "SCISSORS"){
+		return "You win! Rock beats Scissors.";
 	}
-	else if (computerSelection = 3){
-		if (playerSelection = "ROCK"){
-			return "You win! Rock beats Scissors";
-		}
-		else if (playerSelection = "PAPER"){
-			return "You lose! Scissors beats Paper";
-		}
-		else if (playerSelection = "SCISSORS"){
-			return "Draw! Try again.";
-		}
+	else if (playerSelection === "PAPER" && computerSelection === "ROCK"){
+		return "You win! Paper beats Rock.";
+	}
+	else if (playerSelection === "SCISSORS" && computerSelection === "PAPER"){
+		return "You win! Scissors beats Paper.";
+	}
+	else {
+		return "YOU LOSE";
 	}
 }
 
-console.log(computerPlay(computerSelection, playerSelection))
+alert(computerPlay(computerSelection, playerSelection))
 
 </script>
 
