@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<script>
+
+let computerSelection = (Math.ceil(Math.random()*3))
+playerSelection = prompt("Type Rock, Paper, or Scissors").toUpperCase();
+
+function computerPlay(computerSelection, playerSelection){
+	if (computerSelection = 1){
+		if (playerSelection = "ROCK"){
+			return "Draw! Try again.";
+		}
+		else if (playerSelection = "PAPER"){
+			return "You win! Paper beats Rock";
+		}
+		else if (playerSelection = "SCISSORS"){
+			return "You lose! Rock beats Scissors";
+		}
+	}
+	else if (computerSelection = 2){
+		if (playerSelection = "ROCK"){
+			return "You lose! Paper beats Rock";
+		}
+		else if (playerSelection = "PAPER"){
+			return "Draw! Try again.";
+		}
+		else if (playerSelection = "SCISSORS"){
+			return "You win! Scissors beats Paper";
+		}
+	}
+	else if (computerSelection = 3){
+		if (playerSelection = "ROCK"){
+			return "You win! Rock beats Scissors";
+		}
+		else if (playerSelection = "PAPER"){
+			return "You lose! Scissors beats Paper";
+		}
+		else if (playerSelection = "SCISSORS"){
+			return "Draw! Try again.";
+		}
+	}
+}
+
+console.log(computerPlay(computerSelection, playerSelection))
+
+</script>
+
+</html>
