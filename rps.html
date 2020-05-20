@@ -3,39 +3,74 @@
 
 <script>
 
-let computerSelection = Math.random();
+let computerRoll = Math.random();
 
-if (computerSelection < 0.34){
-	computerSelection = "ROCK"
+function computerSelection(computerRoll){
+if (computerRoll < 0.34){
+	return "ROCK"
 }
-else if (computerSelection <= 0.67){
-	computerSelection = "PAPER"
+else if (computerRoll <= 0.67){
+	return "PAPER"
 }
 else {
-	computerSelection = "SCISSORS"
+	return "SCISSORS"
+}
 }
 
-let playerSelection = prompt("Type Rock, Paper, or Scissors").toUpperCase();
+let computerScore = parseInt(0);
+let playerScore = parseInt(0);
+
 
 function computerPlay(computerSelection, playerSelection){
+
 	if (playerSelection === computerSelection){
+		i = i - 1;
 		return "DRAW! Try again."
 	}
 	else if (playerSelection === "ROCK" && computerSelection === "SCISSORS"){
+		playerScore = playerScore + 1;
 		return "You win! Rock beats Scissors.";
 	}
 	else if (playerSelection === "PAPER" && computerSelection === "ROCK"){
+		playerScore = playerScore + 1;
 		return "You win! Paper beats Rock.";
 	}
 	else if (playerSelection === "SCISSORS" && computerSelection === "PAPER"){
+		playerScore = playerScore + 1;
 		return "You win! Scissors beats Paper.";
 	}
 	else {
+		computerScore = computerScore + 1;
 		return "YOU LOSE";
 	}
 }
 
-alert(computerPlay(computerSelection, playerSelection))
+
+
+
+
+
+function game(computerScore, playerScore){
+	for (i = 0; i < 5; i++){
+		let playerSelection = prompt("Type Rock, Paper, or Scissors").toUpperCase();
+		console.log(computerSelection(computerRoll));
+		console.log(computerPlay(computerSelection, playerSelection));
+}
+}
+
+if (playerScore > computerScore){
+	console.log("You win the round of 5!");
+}
+else if (playerScore < computerScore){
+	console.log("You lose the round of 5!");
+}
+else{
+	console.log("OOPS!")
+}
+
+
+
+console.log(game(computerScore, playerScore))
 
 </script>
 
