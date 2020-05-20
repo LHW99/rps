@@ -2,10 +2,10 @@
 <html>
 
 <script>
-
 let computerRoll = Math.random();
 
 function computerSelection(computerRoll){
+
 if (computerRoll < 0.34){
 	return "ROCK"
 }
@@ -39,25 +39,28 @@ function computerPlay(computerSelection, playerSelection){
 		playerScore = playerScore + 1;
 		return "You win! Scissors beats Paper.";
 	}
-	else {
+	else if (playerSelection === "ROCK" && computerSelection === "PAPER"){
 		computerScore = computerScore + 1;
-		return "YOU LOSE";
+		return "YOU LOSE! Paper beats Rock.";
+	}
+	else if (playerSelection === "PAPER" && computerSelection === "SCISSORS"){
+		computerScore = computerScore + 1;
+		return "YOU LOSE! Scissors beats Paper.";
+	}
+	else if (playerSelection === "SCISSORS" && computerSelection === "ROCK"){
+		computerScore = computerScore + 1;
+		return "YOU LOSE! Rock beats Scissors.";
 	}
 }
 
-
-
-
-
-
-function game(computerScore, playerScore){
+function game(){
 	for (i = 0; i < 5; i++){
 		let playerSelection = prompt("Type Rock, Paper, or Scissors").toUpperCase();
-		console.log(computerSelection(computerRoll));
+		computerSelection();
 		console.log(computerPlay(computerSelection, playerSelection));
 }
 }
-
+function finalScore(computerScore, playerScore){
 if (playerScore > computerScore){
 	console.log("You win the round of 5!");
 }
@@ -67,10 +70,11 @@ else if (playerScore < computerScore){
 else{
 	console.log("OOPS!")
 }
-
-
-
-console.log(game(computerScore, playerScore))
+}
+console.log(game());
+console.log(finalScore(computerScore, playerScore));
+console.log("Your score was: " + playerScore);
+console.log("The CPU score was: " + computerScore);
 
 </script>
 
