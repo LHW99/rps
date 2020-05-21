@@ -2,14 +2,13 @@
 <html>
 
 <script>
-let computerRoll = Math.random();
 
-function computerSelection(computerRoll){
-
-if (computerRoll < 0.34){
+function computerRoll(){
+let pick = Math.random();
+if (pick < 0.34){
 	return "ROCK"
 }
-else if (computerRoll <= 0.67){
+else if (pick <= 0.67){
 	return "PAPER"
 }
 else {
@@ -56,7 +55,7 @@ function computerPlay(computerSelection, playerSelection){
 function game(){
 	for (i = 0; i < 5; i++){
 		let playerSelection = prompt("Type Rock, Paper, or Scissors").toUpperCase();
-		computerSelection();
+		computerSelection = computerRoll();
 		console.log(computerPlay(computerSelection, playerSelection));
 }
 }
