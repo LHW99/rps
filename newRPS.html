@@ -14,10 +14,15 @@
 <div class=rps>
 	<input type=button id=rock class=choice>
 
-	<input type=button id=paper class=choice>
+	<input type=button id=paper class=choice><br>
 
 	<input type=button id=scissors class=choice>
 
+</div>
+
+<div id=pScore>
+</div>
+<div id=cScore>
 </div>
 
 <div id=score>
@@ -28,6 +33,7 @@
 
 let computerScore = parseInt(0);
 let playerScore = parseInt(0);
+let counter = parseInt(0);
 
 function computerRoll(){
 let pick = Math.random();
@@ -42,12 +48,19 @@ else {
 }
 }
 
+let score = document.querySelector('#score');
+scoreLog = document.createTextNode('Rock, Paper, Scissors!')
+score.appendChild(scoreLog);
+
 
 let rock = document.querySelector('#rock');
 rock.value = 'Rock';
 rock.addEventListener('click', () => {
 	playerSelection = "ROCK";
-	game();
+	counter++;
+	displayScore();
+	updateScore();
+	finalScore();
 });
 
 
@@ -55,14 +68,20 @@ let paper = document.querySelector('#paper');
 paper.value = 'Paper';
 paper.addEventListener('click', () => {
 	playerSelection = "PAPER";
-	game();
+	counter++;
+	displayScore();
+	updateScore();
+	finalScore();
 });
 
 let scissors = document.querySelector('#scissors');
 scissors.value = 'Scissors'
 scissors.addEventListener('click', () => {
 	playerSelection = "SCISSORS";
-	game();
+	counter++;
+	displayScore();
+	updateScore();
+	finalScore();
 });
 
 
@@ -98,18 +117,32 @@ function computerPlay(computerSelection, playerSelection){
 
 function game(){
 	computerSelection = computerRoll();
-	console.log(computerPlay(computerSelection, playerSelection));
+	return computerPlay(computerSelection, playerSelection);
 }
 
-function finalScore(computerScore, playerScore){
+function displayScore(){
+	document.getElementById('score').innerHTML = "ROUND " + counter + ": " + game();
+}
+
+function updateScore(){
+	document.getElementById('pScore').innerHTML = "Your Score: " + playerScore;
+	document.getElementById('cScore').innerHTML = "Computer Score: " + computerScore;
+}
+
+function finalScore(){
 if (playerScore === 5){
-	alert("You won 5 rounds! Play again?");
+	alert("You won 5 rounds! Game will reset.");
+	playerScore = parseInt(0);
+	computerScore = parseInt(0);
+	counter = 0;
 }
 else if (computerScore === 5){
-	alert("You lost! Play again?");
+	alert("You lost 5 rounds! Game will reset.");
+	playerScore = parseInt(0);
+	computerScore = parseInt(0);
+	counter = 0;
 }
 }
-
 
 </script>
 

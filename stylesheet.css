@@ -11,10 +11,45 @@
 }
 
 #whole {
-	color: pink;
-	background-color: Green;
+	color: #8C2121;
+	background-color: #FFFFFF;
 }
 
 .choice{
-	
+	color: #FFFFFF;
+	background-color: #8C2121;
+	height: 150px;
+	width: 150px;
+	padding 20px;
+	text-align: center;
+	display: inline-block;
+	font-size: 20px;
+	margin: 10px 10px;
+	border-radius: 50%;
+}
+
+#rock:hover{
+	background-image: url('https://image.shutterstock.com/image-vector/rock-on-concert-gig-hand-600w-1405223702.jpg');
+	background-size:cover;
+}
+
+#paper:hover{
+	background-image: url('https://image.shutterstock.com/image-vector/vector-illustration-counting-hand-isolated-600w-797331844.jpg');
+	background-size:cover;
+}
+
+#scissors:hover{
+	background-image: url('https://image.shutterstock.com/image-vector/hand-gesture-v-sign-victory-600w-1174905205.jpg');
+	background-size:cover;
+}
+
+.rps{
+	text-align: center;
+}
+
+@media screen and (max-width: 480px){
+	.choice{
+		height: 100px;
+		width: 100px;
+	}
 }
